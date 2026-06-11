@@ -26,7 +26,6 @@ The server provides tools for adding, listing, updating, deleting, and summarizi
 - [🗄️ Database Schema](#️-database-schema)
 - [💬 Example Claude Prompts](#-example-claude-prompts)
 - [🧑‍💻 Development](#-development)
-- [📄 License](#-license)
 
 ---
 
