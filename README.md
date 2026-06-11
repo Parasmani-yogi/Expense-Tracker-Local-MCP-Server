@@ -174,7 +174,7 @@ Create a new expense record.
 #### Example
 
 ```text
-Add an expense of ₹750 on 2026-06-11 for food > groceries.
+Add an expense - cab ride to dehli last sunday fare was 500Rs
 ```
 
 ---
@@ -191,7 +191,7 @@ Retrieve all expenses within a specified date range.
 #### Example
 
 ```text
-Show my expenses from 2026-06-01 to 2026-06-30.
+Show my expenses of May.
 ```
 
 ---
