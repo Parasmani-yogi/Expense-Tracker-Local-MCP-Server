@@ -222,7 +222,18 @@ Generate category-wise spending totals.
 #### Example
 
 ```text
-Summarize my expenses for June 2026.
+Summarize my expenses for March 2026.
+
+Request
+
+{
+  "end_date": "2026-03-31",
+  "start_date": "2026-03-01"
+}
+Response
+
+[{"category":"Entertainment","total_amount":1500.0},{"category":"Health","total_amount":4200.0},{"category":"Shopping","total_amount":8500.0}]
+
 ```
 
 ---
@@ -424,9 +435,3 @@ categories.json
 The project is intentionally simple and easy to extend. New tools, resources, reports, analytics, and integrations can be added with minimal changes.
 
 ---
-
-## 📄 License
-
-MIT License
-
-You are free to use, modify, and distribute this project in accordance with the license terms.
