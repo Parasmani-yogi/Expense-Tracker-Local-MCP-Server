@@ -174,7 +174,20 @@ Create a new expense record.
 #### Example
 
 ```text
-Add an expense - cab ride to dehli last sunday fare was 500Rs
+Add an expense - cab ride to dehli last sunday fare was 500Rs.
+
+Request
+
+{
+  "date": "2026-06-07",
+  "note": "Cab ride to Delhi",
+  "amount": "500",
+  "category": "Transport",
+  "subcategory": "Cab"
+}
+Response
+
+{"status":"ok","id":1}
 ```
 
 ---
