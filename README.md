@@ -71,7 +71,6 @@ expense-tracker-mcp/
 ├── expenses.db
 ├── categories.json
 ├── pyproject.toml
-├── uv.lock
 └── README.md
 ```
 
@@ -81,7 +80,6 @@ expense-tracker-mcp/
 | `expenses.db` | SQLite database |
 | `categories.json` | Expense categories and subcategories |
 | `pyproject.toml` | Project dependencies |
-| `uv.lock` | Dependency lock file |
 | `README.md` | Project documentation |
 
 ---
