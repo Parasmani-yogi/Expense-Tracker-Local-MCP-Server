@@ -1,7 +1,7 @@
 from fastmcp import FastMCP   # To import the FastMCP class from the fastmcp module
 import os   # To handle file paths
 import sqlite3  # To manage the database connection
-
+from typing import Optional # To specify optional parameters in function definitions
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'expenses.db')  # Define the path to the SQLite database
 
@@ -50,7 +50,7 @@ def list_expenses(start_date,end_date):
     with sqlite3.connect(DB_PATH) as c:  # Connect to the SQLite database
         cur = c.execute(
             """
-            SELECT id, date, amount, category, subcategory, note " 
+            SELECT id, date, amount, category, subcategory, note 
             FROM expenses 
             WHERE date BETWEEN ? AND ?
             ORDER BY id ASC
@@ -88,26 +88,19 @@ def summarize(start_date,end_date,category=None):
         return [dict(zip(cols,r)) for r in cur.fetchall()]  # Return a list of dictionaries representing the summarized expenses by category
 
 
-# Tool to edit an existing expense entry in the database
+
+# Tool to edit an existing expense entry in the database by ID
 @mcp.tool()
 def edit_expense(
     expense_id: int,
-    date: str = None,
-    amount: float = None,
-    category: str = None,
-    subcategory: str = None,
-    note: str = None,
+    date: Optional[str] = None,
+    amount: Optional[float] = None,
+    category: Optional[str] = None,
+    subcategory: Optional[str] = None,
+    note: Optional[str] = None,
 ):
     """
     Update an existing expense.
-
-    Parameters:
-    - expense_id: Expense ID to update
-    - date: New date (YYYY-MM-DD)
-    - amount: New amount
-    - category: New category
-    - subcategory: New subcategory
-    - note: New note
 
     Only supplied fields are updated.
     """
@@ -150,8 +143,7 @@ def edit_expense(
         updated_amount = amount if amount is not None else current["amount"]
         updated_category = category if category is not None else current["category"]
         updated_subcategory = (
-            subcategory
-            if subcategory is not None
+            subcategory if subcategory is not None
             else current["subcategory"]
         )
         updated_note = note if note is not None else current["note"]
@@ -177,6 +169,8 @@ def edit_expense(
             )
         )
 
+        c.commit()
+
         return {
             "status": "ok",
             "expense_id": expense_id,
@@ -188,6 +182,7 @@ def edit_expense(
                 "note": updated_note,
             }
         }
+    
 
 
 # Tool to delete an expense entry from the database by ID
