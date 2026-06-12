@@ -14,8 +14,8 @@ The server provides tools for adding, listing, updating, deleting, and summarizi
 - [⚙️ Requirements](#️-requirements)
 - [🚀 Installation](#-installation)
 - [▶️ Running the Server](#️-running-the-server)
-- [🔌 Claude Desktop Integration](#-claude-desktop-integration)
 - [🔎 FastMCP Inspector](#-fastmcp-inspector)
+- [🔌 Claude Desktop Integration](#-claude-desktop-integration)
 - [🛠️ Available Tools](#️-available-tools)
   - [add_expense](#add_expense)
   - [list_expenses](#list_expenses)
@@ -138,25 +138,6 @@ The SQLite database is created automatically on first startup.
 
 ---
 
-## 🔌 Claude Desktop Integration
-
-Add the following configuration to your `claude_desktop_config.json` file:
-
-```json
-{
-  "mcpServers": {
-    "expense-tracker": {
-      "command": "uv",
-      "args": ["run", "main.py"],
-      "cwd": "/absolute/path/to/expense-tracker-mcp"
-    }
-  }
-}
-```
-
-Restart Claude Desktop after updating the configuration.
-
----
 
 ## 🔎 FastMCP Inspector
 
@@ -177,6 +158,27 @@ The Inspector can be used to:
 - Validate your server before connecting it to Claude Desktop
 
 This is the recommended workflow during development.
+
+---
+
+
+## 🔌 Claude Desktop Integration
+
+Add the following configuration to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "expense-tracker": {
+      "command": "uv",
+      "args": ["run", "main.py"],
+      "cwd": "/absolute/path/to/expense-tracker-mcp"
+    }
+  }
+}
+```
+
+Restart Claude Desktop after updating the configuration.
 
 ---
 
