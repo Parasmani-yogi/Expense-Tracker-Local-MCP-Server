@@ -90,6 +90,7 @@ expense-tracker-mcp/
 | Python | 3.10+ |
 | FastMCP | Latest |
 | SQLite | Included with Python |
+| uv | latest recommended |
 
 ---
 
