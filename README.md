@@ -1,6 +1,6 @@
 # 💸 Expense Tracker MCP Server
 
-A lightweight Model Context Protocol (MCP) server built with FastMCP and SQLite that enables AI assistants such as Claude to manage personal expenses through natural language.
+A lightweight Model Context Protocol (MCP) server built with [FastMCP](https://github.com/PrefectHQ/fastmcp) and SQLite that enables AI assistants such as Claude to manage personal expenses through natural language.
 
 The server provides tools for adding, listing, updating, deleting, and summarizing expenses while storing all data locally in a SQLite database.
 
@@ -204,6 +204,16 @@ Retrieve all expenses within a specified date range.
 
 ```text
 Show my expenses of May.
+
+Request
+
+{
+  "end_date": "2026-03-31",
+  "start_date": "2026-03-01"
+}
+Response
+
+[{"id":14,"date":"2026-03-12","amount":8500.0,"category":"Shopping","subcategory":"Electronics","note":"Laptop bag and accessories"},{"id":15,"date":"2026-03-22","amount":1500.0,"category":"Entertainment","subcategory":"Cinema","note":"Movie tickets + popcorn"},{"id":16,"date":"2026-03-08","amount":4200.0,"category":"Health","subcategory":"Fitness","note":"Gym membership - 3 months"}]
 ```
 
 ---
@@ -255,9 +265,19 @@ Only supplied fields are modified.
 #### Example
 
 ```text
-Update expense ID 5.
+Update expense ID 15.
 
-Change amount to 1200 and note to "Weekly groceries".
+Change amount to 2000.
+
+Request
+
+{
+  "amount": 2000,
+  "expense_id": 15
+}
+Response
+
+{"status":"ok","expense_id":15,"updated":{"date":"2026-03-22","amount":2000.0,"category":"Entertainment","subcategory":"Cinema","note":"Movie tickets + popcorn"}}
 ```
 
 ---
@@ -273,7 +293,17 @@ Delete an expense by ID.
 #### Example
 
 ```text
-Delete expense ID 5.
+Delete expense ID 25.
+
+
+Request
+
+{
+  "expense_id": 25
+}
+Response
+
+{"status":"ok","deleted_expense_id":25}
 ```
 
 ---
