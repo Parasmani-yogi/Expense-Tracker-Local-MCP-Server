@@ -15,6 +15,7 @@ The server provides tools for adding, listing, updating, deleting, and summarizi
 - [🚀 Installation](#-installation)
 - [▶️ Running the Server](#️-running-the-server)
 - [🔌 Claude Desktop Integration](#-claude-desktop-integration)
+- [🔎 FastMCP Inspector](#-fastmcp-inspector)
 - [🛠️ Available Tools](#️-available-tools)
   - [add_expense](#add_expense)
   - [list_expenses](#list_expenses)
@@ -99,9 +100,9 @@ expense-tracker-mcp/
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/expense-tracker-mcp.git
-cd expense-tracker-mcp
-```
+git clone https://github.com/Parasmani-yogi/Expense-Tracker-Local-MCP-Server.git
+cd Expense-Tracker-Local-MCP-Server
+```  
 
 ### Install Dependencies
 
@@ -154,6 +155,28 @@ Add the following configuration to your `claude_desktop_config.json` file:
 ```
 
 Restart Claude Desktop after updating the configuration.
+
+---
+
+## 🔎 FastMCP Inspector
+
+FastMCP includes a built-in Inspector that allows you to test MCP tools and resources directly from your browser.
+
+Launch the Inspector:
+
+```bash
+uv run fastmcp dev inspector main.py
+```
+
+The Inspector can be used to:
+
+- Test MCP tools interactively
+- Inspect tool requests and responses
+- View available resources
+- Debug tool behavior
+- Validate your server before connecting it to Claude Desktop
+
+This is the recommended workflow during development.
 
 ---
 
